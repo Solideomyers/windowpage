@@ -1,4 +1,3 @@
-
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/shadcn/button';
@@ -9,7 +8,7 @@ import {
 } from '@/actions/booking-form/types/booking-form.types';
 import { bookingFormSchema } from '@/actions/booking-form/schemas/booking';
 import { useValidation } from '@/hooks/useValidation';
-import { useBookingForm } from '@/actions/booking-form/hooks/useBookingForm';
+// import { useBookingForm } from '@/actions/booking-form/hooks/useBookingForm';
 import { toast, Toaster } from 'sonner';
 import { PersonalInfoForm } from '@/components/reservation-show/form/personal-info-form';
 import { PaxInfoForm } from '@/components/reservation-show/form/pax-info-form';
@@ -21,7 +20,7 @@ import { fontMontserrat } from '@/fonts/fonts';
 import { ButtonRadius } from '@/components/ui/enums/button-variants.enum';
 import { useBookingStore } from '@/store/bookingStore';
 import { useEffect } from 'react';
-import { useBookingFlow } from '@/hooks/query/useBookingFlow';
+// import { useBookingFlow } from '@/hooks/query/useBookingFlow';
 import { useTranslations } from 'next-intl';
 
 interface BookingFormProps {
@@ -32,41 +31,40 @@ interface BookingFormProps {
 
 /**
  * BookingForm component handles the booking form for reservations.
- * 
+ *
  * @param {object} props - The properties object.
  * @param {string} props.className - Additional class names for styling.
  * @param {Date} props.dateInit - The initial date for the booking.
  * @param {number} props.pax - The number of adults for the booking.
- * 
+ *
  * @returns {JSX.Element} The rendered booking form component.
- * 
+ *
  * @component
- * 
+ *
  * @example
  * <BookingForm className="custom-class" dateInit={new Date()} pax={2} />
- * 
+ *
  * @remarks
  * This component uses the `useForm` hook from `react-hook-form` for form handling,
  * and `zodResolver` for schema validation. It also utilizes custom hooks `useValidation`
  * and `useBookingForm` for validation and form submission respectively.
- * 
+ *
  * The form includes personal information fields, pax information fields, and a discount code section.
  * It calculates the total price based on the number of adults and children, and applies a discount
  * for children under 10 years old.
- * 
+ *
  * The form displays validation errors using toast notifications and shows a loading state while submitting.
- * 
+ *
  * @see {@link https://react-hook-form.com/} for more information on `react-hook-form`.
  * @see {@link https://github.com/colinhacks/zod} for more information on `zod`.
  */
-export const BookingForm = ({ className, dateInit, pax }: BookingFormProps) => {
+export const BookingForm = ({ className, dateInit }: BookingFormProps) => {
   const adultPrice = 190.0;
-  const childPrice = 95.0
-console.log('form')    
-    const {updateBookingData, bookingData} = useBookingStore.getState();
+  const childPrice = 95.0;
+  console.log('form');
+  const { updateBookingData, bookingData } = useBookingStore.getState();
 
-
-const t = useTranslations('Ui')
+  const t = useTranslations('Ui');
 
   const { validate } = useValidation(bookingFormSchema);
 
@@ -93,11 +91,11 @@ const t = useTranslations('Ui')
     control,
     handleSubmit,
     setValue,
-    reset,
+
     watch,
     formState: {
       errors,
-      isValid,
+
       isSubmitting,
       isDirty,
       isSubmitted,
@@ -107,9 +105,9 @@ const t = useTranslations('Ui')
   const adults = watch('pax.adults');
   const childrens = watch('pax.childrens');
   const total = adults * adultPrice + childrens * childPrice;
-  const errorDate = errors.fecha?.message
-  const fechaDate = watch('fecha')
-  console.log({errorDate: errorDate, dateInit, fechaDate})
+  const errorDate = errors.fecha?.message;
+  const fechaDate = watch('fecha');
+  console.log({ errorDate: errorDate, dateInit, fechaDate });
   useEffect(() => {
     setValue('amount', total);
   }, [adults, childrens, setValue, total]);
@@ -122,12 +120,10 @@ const t = useTranslations('Ui')
       return;
     }
 
-
-    
-    updateBookingData({...data, showSummary: true})
+    updateBookingData({ ...data, showSummary: true });
     if (isSubmitted) {
       toast.success('Cargando la reserva...');
-      console.log('reset')
+      console.log('reset');
     }
   };
 
@@ -135,7 +131,7 @@ const t = useTranslations('Ui')
     Object.keys(errors).forEach((key) => {
       const error = errors[key as keyof BookingFormErrors];
       if (error) {
-      toast.error(error.message);
+        toast.error(error.message);
       }
     });
   };
@@ -180,7 +176,7 @@ const t = useTranslations('Ui')
                 {t('pax.total_pay')}
               </span>
               <span className='font-bold text-sm'>
-                USD <strong className='text-2xl'>{total}</strong>
+                {'USD'} <strong className='text-2xl'>{'total'}</strong>
               </span>
             </div>
 
@@ -214,7 +210,7 @@ const t = useTranslations('Ui')
                 {isSubmitting ? (
                   <>
                     <LoaderCircle className='mr-2 h-4 w-4 animate-spin' />
-                    <span className='capitalize'>procesando...</span>
+                    <span className='capitalize'>{'procesando...'}</span>
                   </>
                 ) : (
                   <>
@@ -228,16 +224,10 @@ const t = useTranslations('Ui')
             </div>
 
             <div className='flex flex-col gap-2 text-xs sm:text-sm text-center mt-4'>
-
-            <p >
-              MENORES DE 10 AÑOS 50% DE DESCUENTO
-            </p>
-            <p>
-              Atención: De acuerdo a nuestras políticas de cancelación, si el
-              servicio se cancela el mismo día o Ud. no se presenta esa misma
-              noche con la reserva activa, no se realizaran reintegros. Puede
-              cancelar 24 HS antes del Show.
-            </p>
+              <p>{'MENORES DE 10 AÑOS 50% DE DESCUENTO'}</p>
+              <p>
+                {"Atención: De acuerdo a nuestras políticas de cancelación, si el servicio se cancela el mismo día o Ud. no se presenta esa misma noche con la reserva activa, no se realizaran reintegros. Puede cancelar 24 HS antes del Show."}
+              </p>
             </div>
           </div>
           <Toaster richColors />

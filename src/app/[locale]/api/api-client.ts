@@ -20,13 +20,12 @@ class ApiClient {
       }
     );
   }
-
-  public async get<T>(url: string, params?: Record<string, any>, headers?: Record<string, string>): Promise<T> {
+  public async get<T>(url: string, params?: Record<string, unknown>, headers?: Record<string, string>): Promise<T> {
     const response = await this.instance.get<T>(url, { params, headers });
     return response.data;
   }
 
-  public async post<T>(url: string, data: Record<string, any>): Promise<T> {
+  public async post<T, D = unknown>(url: string, data: D): Promise<T> {
     const response = await this.instance.post<T>(url, data);
     return response.data;
   }

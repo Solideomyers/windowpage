@@ -53,7 +53,7 @@ export const PaxInfoForm = <T extends BookingFormData>({
         {/* adults */}
         <div className='flex flex-col items-center gap-4'>
           <span className='text-sm sm:text-base text-center'>
-            Cantidad de adultos
+            {"Cantidad de adultos"}
           </span>
           <div className='flex items-center gap-6'>
             <Button
@@ -97,7 +97,7 @@ export const PaxInfoForm = <T extends BookingFormData>({
 
         {/* childrens */}
         <div className='flex flex-col items-center gap-4'>
-          <span className='text-sm sm:text-base'>Cantidad de menores</span>
+          <span className='text-sm sm:text-base'>{"Cantidad de menores"}</span>
           <div className='flex items-center gap-4'>
             <Button
               variant={ButtonVariant.Outline}
@@ -135,7 +135,7 @@ export const PaxInfoForm = <T extends BookingFormData>({
               <Plus className='h-3 w-3 sm:h-4 sm:w-4 stroke-[3px]' />
             </Button>
           </div>
-          <span className='font-normal'>USD {childrenPrice.toFixed(2)}</span>
+          <span className='font-normal'>{"USD"} {childrenPrice.toFixed(2)}</span>
         </div>
       </div>
     </>

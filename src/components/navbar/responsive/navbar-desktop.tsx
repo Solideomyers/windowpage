@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Logo } from '@/components/logo/logo';
 import { NavLinks } from '@/components/navbar/mobile/navlinks';
-import { SwitchLanguage } from '@/components/ui/language/btn-language';
-import { SwitchLanguageVariant } from '@/components/ui/enums/switch-variants.enum';
+// import { SwitchLanguage } from '@/components/ui/language/btn-language';
+// import { SwitchLanguageVariant } from '@/components/ui/enums/switch-variants.enum';
 
 export const DesktopNavbar = () => {
   return (

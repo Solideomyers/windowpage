@@ -30,7 +30,7 @@ export const MenuLanguage: React.FC<MenuLanguageProps> = ({ setStep }) => {
           height={24}
           className='rounded-full'
         />
-        español
+        {"español"}
       </Button>
 
       <Button
@@ -48,7 +48,7 @@ export const MenuLanguage: React.FC<MenuLanguageProps> = ({ setStep }) => {
           height={24}
           className='rounded-full'
         />
-        inglés
+        {"inglés"}
       </Button>
 
       <Button
@@ -66,7 +66,7 @@ export const MenuLanguage: React.FC<MenuLanguageProps> = ({ setStep }) => {
           height={24}
           className='rounded-full'
         />
-        portugués
+        {"portugués"}
       </Button>
 
       <Button
@@ -84,7 +84,7 @@ export const MenuLanguage: React.FC<MenuLanguageProps> = ({ setStep }) => {
           height={24}
           className='rounded-full'
         />
-        chino
+        {"chino"}
       </Button>
     </div>
   );

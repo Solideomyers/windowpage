@@ -26,7 +26,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        menú vip
+        {"menú vip"}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -35,7 +35,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        menú - cena show
+        {"menú - cena show"}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -44,7 +44,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        menú solo show
+        {"menú solo show"}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -53,7 +53,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        cocktails
+        {"cocktails"}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -62,7 +62,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        vinos
+        {"vinos"}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -71,7 +71,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        menú mediodia
+        {"menú mediodia"}
       </Button>
       <Button
         variant={ButtonVariant.Default}

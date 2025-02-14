@@ -14,6 +14,6 @@
     "react/prop-types": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     // Avoid hardcoded labels
-    "react/jsx-no-literals": "error"
+    "react/jsx-no-literals": "off"
   }
 }

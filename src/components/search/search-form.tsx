@@ -18,7 +18,7 @@ import { useRouter } from '@/i18n/routing';
 
 import { LoaderCircle } from 'lucide-react';
 import { formatDate, parseToPathUrl } from '@/lib/utils';
-import { useShowStore } from '@/store/showStore';
+// import { useShowStore } from '@/store/showStore';
 import { ButtonRadius } from '@/components/ui/enums/button-variants.enum';
 import { useBookingStore } from '@/store/bookingStore';
 import { useGetShows } from '@/hooks/query/useGetShows';
@@ -30,7 +30,7 @@ export const SearchForm: React.FC = () => {
   const { search, loading } = useSearch();
   const router = useRouter();
   const { data, isLoading } = useGetShows();
-  const { shows } = useShowStore();
+  // const { shows } = useShowStore();
   const { setField } = useBookingStore();
 
   const t = useTranslations('HomePage.searchBooking');

@@ -15,7 +15,9 @@ export const NavLinks: React.FC<NavLinksProps> = ({
 
   const handleLinkClick = () => {
     if (isMobile) {
-      onMobileLinkClick && onMobileLinkClick()
+      if (onMobileLinkClick) {
+        onMobileLinkClick();
+      }
     }
   }
 
@@ -51,8 +53,8 @@ const {navItems} = useSiteConfig()
             href={item.href}
             className={`
               w-full
-              py-2
-              px-5
+              text-palette-title
+              hover:bg-palette-gold
               text-pallete-title
               hover:bg-pallete-gold
               transition-colors

@@ -61,41 +61,6 @@ export const getInitialBreakpoint = (breakpoint?: Breakpoint): Breakpoint => {
 };
 
 /**
- * Creates a debounced function that delays invoking the provided function until after the specified wait time has elapsed
- * since the last time the debounced function was invoked.
- *
- * @template T - The type of the function to debounce.
- * @param {T} func - The function to debounce.
- * @param {number} wait - The number of milliseconds to delay.
- * @returns {(...args: Parameters<T>) => void} - Returns the new debounced function.
- *
- * @example
- * ```typescript
- * const logMessage = (message: string) => {
- *   console.log(message);
- * };
- *
- * const debouncedLogMessage = debounce(logMessage, 2000);
- *
- * // Only the last call to debouncedLogMessage will be executed after 2 seconds
- * debouncedLogMessage("Hello");
- * debouncedLogMessage("Hello, again");
- * debouncedLogMessage("Hello, after 2 seconds");
- * ```
- */
-
-export const debounce = <T extends (...args: any[]) => void>(
-  func: T,
-  wait: number
-): ((...args: Parameters<T>) => void) => {
-  let timeout: NodeJS.Timeout;
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-};
-
-/**
  * Returns the URL of the flag image corresponding to the given locale.
  *
  * @param locale - The locale code for which to get the flag image URL.

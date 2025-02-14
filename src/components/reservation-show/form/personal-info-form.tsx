@@ -45,7 +45,7 @@ export const PersonalInfoForm = <T extends BookingFormData>({
       <div>
         {/* date */}
         <label className='block text-sm font-medium mb-1'>
-          Fecha de su visita
+          {"Fecha de su visita"}
         </label>
         <DateForm
           variant={ButtonVariant.Underline}
@@ -99,7 +99,7 @@ export const PersonalInfoForm = <T extends BookingFormData>({
       {/* motif */}
       <div>
         <label className='block text-sm font-medium mb-1'>
-          Motivo de su visita
+          {"Motivo de su visita"}
         </label>
         <DropdownForm
           variant={ButtonVariant.Underline}

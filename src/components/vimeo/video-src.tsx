@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useState, useEffect, Suspense } from 'react';
+import React, {  Suspense } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 interface VimeoVideoProps {

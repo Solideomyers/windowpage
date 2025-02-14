@@ -48,44 +48,44 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   const t = useTranslations('Ui');
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      const viewport = document.querySelector(
-        '[data-radix-scroll-area-viewport]'
-      );
-      if (!viewport) return;
+  // useEffect(() => {
+  //   const handleKeyDown = (e: KeyboardEvent) => {
+  //     const viewport = document.querySelector(
+  //       '[data-radix-scroll-area-viewport]'
+  //     );
+  //     if (!viewport) return;
 
-      const scrollAmount = 20;
+  //     const scrollAmount = 20;
 
-      const scrollActions: Record<string, () => void> = {
-        ArrowDown: () =>
-          viewport.scrollBy({ top: scrollAmount, behavior: 'smooth' }),
-        ' ': () => viewport.scrollBy({ top: scrollAmount, behavior: 'smooth' }),
-        ArrowUp: () =>
-          viewport.scrollBy({ top: -scrollAmount, behavior: 'smooth' }),
-        PageDown: () =>
-          viewport.scrollBy({ top: viewport.clientHeight, behavior: 'smooth' }),
-        PageUp: () =>
-          viewport.scrollBy({
-            top: -viewport.clientHeight,
-            behavior: 'smooth',
-          }),
-        Home: () => viewport.scrollTo({ top: 0, behavior: 'smooth' }),
-        End: () =>
-          viewport.scrollTo({ top: viewport.scrollHeight, behavior: 'smooth' }),
-      };
+  //     const scrollActions: Record<string, () => void> = {
+  //       ArrowDown: () =>
+  //         viewport.scrollBy({ top: scrollAmount, behavior: 'smooth' }),
+  //       ' ': () => viewport.scrollBy({ top: scrollAmount, behavior: 'smooth' }),
+  //       ArrowUp: () =>
+  //         viewport.scrollBy({ top: -scrollAmount, behavior: 'smooth' }),
+  //       PageDown: () =>
+  //         viewport.scrollBy({ top: viewport.clientHeight, behavior: 'smooth' }),
+  //       PageUp: () =>
+  //         viewport.scrollBy({
+  //           top: -viewport.clientHeight,
+  //           behavior: 'smooth',
+  //         }),
+  //       Home: () => viewport.scrollTo({ top: 0, behavior: 'smooth' }),
+  //       End: () =>
+  //         viewport.scrollTo({ top: viewport.scrollHeight, behavior: 'smooth' }),
+  //     };
 
-      const action = scrollActions[e.key];
-      if (action) {
-        e.preventDefault();
-        action();
-      }
+  //     const action = scrollActions[e.key];
+  //     if (action) {
+  //       e.preventDefault();
+  //       action();
+  //     }
 
-      window.addEventListener('keydown', handleKeyDown);
+  //     window.addEventListener('keydown', handleKeyDown);
 
-      return () => window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
+  //     return () => window.removeEventListener('keydown', handleKeyDown);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (isOpen) {

@@ -27,7 +27,7 @@ interface Language {
   labelKey: string;
 }
 
-type Languages = Record<Locale, Language>;
+// type Languages = Record<Locale, Language>;
 
 type LanguageSwitcherProps = {
   /**
