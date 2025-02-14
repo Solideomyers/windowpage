@@ -30,18 +30,21 @@ export const useResponsive = (
       return;
     }
 
-    const handleResize = debounce(() => {
-      const width = window.innerWidth;
+    const handleResize = debounce({
+      func: () => {
+        const width = window.innerWidth;
 
-      const newBreakpoint = Object.keys(breakpoints).find((key) => {
-        const { min, max } = breakpoints[key];
-        return width >= min && (max === undefined || width < max);
-      }) as Breakpoint;
+        const newBreakpoint = Object.keys(breakpoints).find((key) => {
+          const { min, max } = breakpoints[key];
+          return width >= min && (max === undefined || width < max);
+        }) as Breakpoint;
 
-      if (newBreakpoint && newBreakpoint !== currentBreakpoint) {
-        setCurrentBreakpoint(newBreakpoint);
-      }
-    }, 100);
+        if (newBreakpoint && newBreakpoint !== currentBreakpoint) {
+          setCurrentBreakpoint(newBreakpoint);
+        }
+      },
+      wait: 100,
+    });
 
     window.addEventListener('resize', handleResize);
     handleResize();
