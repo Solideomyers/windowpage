@@ -34,6 +34,11 @@ import { Show } from '@/app/[locale]/api/shows/interfaces/show.interface';
 //   value: string;
 // };
 
+interface Visit {
+  name: string;
+  value: string;
+}
+
 interface EventosDropdownProps<T extends FieldValues> {
   control: Control<T>;
   setValue: UseFormSetValue<T>;
@@ -41,7 +46,7 @@ interface EventosDropdownProps<T extends FieldValues> {
   label?: string;
   isIcon?: boolean;
   controlName: string;
-  data: Show[];
+  data: (Show | Visit)[];
   defaultValue?: string;
   variant?: ButtonVariant;
   radius?: ButtonRadius;
