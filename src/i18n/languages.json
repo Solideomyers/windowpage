@@ -1,0 +1,27 @@
+{
+  "en": {
+    "name": "English",
+    "class": "locale-en",
+    "dir": "ltr",
+    "flag": "https://www.laventanaweb.com/images/united-kingdom.png",
+    "alt": "Bandera de Estados Unidos",
+    "labelKey": "english"
+  },
+  "es": {
+    "name": "Español",
+    "class": "locale-es",
+    "dir": "ltr",
+    "flag": "https://www.laventanaweb.com/images/argentina.png",
+    "alt": "Bandera de Argentina",
+    "labelKey": "spanish"
+  },
+  "pt": {
+    "name": "Português",
+    "class": "locale-pt",
+    "dir": "ltr",
+    "flag": "https://www.laventanaweb.com/images/brazil.png",
+    "alt": "Bandera de Brasil",
+    "labelKey": "portuguese"
+  }
+  
+}

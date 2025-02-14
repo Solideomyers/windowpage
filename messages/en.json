@@ -1,0 +1,146 @@
+{
+  "RootLayout": {
+    "app_name": "La ventana",
+    "description": "El mundo del tango"
+  },
+  "HomePage": {
+    "searchBooking": {
+      "title": "book your tango show at la ventana today",
+      "about": "about",
+      "search": "Search",
+      "tipe_show": "Show Type",
+      "date": "Date",
+      "amount_pax": "Amount Of Pax"
+    }
+  },
+  "Ui": {
+    "btn_send": "send",
+    "btn_close": "Close",
+    "btn_next": "Next",
+    "form": {
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "comment": "Comment",
+      "to_subscribe": "I want to subscribe to the newsletter",
+      "hotel": "Hotel",
+      "motif": "Reason for your visit",
+      "date":"Date of your visit"
+    },
+    "pax":{
+      "pax_adults": "Number of adults",
+      "pax_childrens": "Number of minors",
+      "total_pay": "total to pay",
+      "discount":"I have a discount code"
+    },
+    "about_us": {
+      "modal_aboutus": "About us"
+    }
+  },
+  "Navigation": {
+    "title": "La ventana",
+    "description": "La Ventana web",
+    "salon": {
+      "label": "salon",
+      "href": "#salon"
+    },
+    "menu": {
+      "label": "menu",
+      "href": "#menu"
+    },
+    "show": {
+      "label": "show",
+      "href": "#shows"
+    },
+    "songs": {
+      "label": "songs",
+      "href": "#canciones"
+    },
+    "contact": {
+      "label": "contact",
+      "href": "#contacto"
+    },
+    "events": {
+      "label": "events",
+      "href": "#eventos"
+    },
+    "bookings": {
+      "label": "bookings",
+      "href": "#reservas"
+    },
+    "usd": {
+      "label": "usd",
+      "href": ""
+    }
+  },
+  "ClassTango": {
+    "title": "enjoy a night of tango in buenos aires",
+    "subTitle": "before dinner you can book a tango class or a wine tasting"
+  },
+  "Menu": {
+    "title": "3-course gourmet dinner with drinks included"
+  },
+  "Show": {
+    "title": "tango & folklore show with 32 artists on stage"
+  },
+  "Bookings": {
+    "title": "book your ticket and enjoy the most visited show in buenos aires"
+  },
+  "Reviews": {
+    "title": "reviews from our guests",
+    "subTitle": "overall rating"
+  },
+  "NewsLetter": {
+    "title": "subscribe to our newsletter"
+  },
+  "Contact": {
+    "title": "inquiries"
+  },
+  "Contact-info": {
+    "schedule_info": {
+      "title": "open every day",
+      "sales": "Sales",
+      "tango_lesson": "Tango lesson",
+      "tasting_cellar": "Tasting in the cellar",
+      "dinner": "Dinner",
+      "show": "Show"
+    },
+    "location_info": {
+      "title": "where we are?",
+      "city": "Buenos Aires",
+      "country": "Argentina"
+    },
+    "booking_info": {
+      "title": "bookings"
+    },
+    "social_media_info": {
+      "title": "follow in"
+    }
+  },
+  "Services": {
+    "title": "learn about all the services of familia tango show argentina"
+  },
+  "Footer": {
+    "title": "All rights reserved by Ventana SRL - by Familia Tango Show Argentina"
+  },
+  "Flash": {
+    "close": "Close",
+    "success": "Success",
+    "error": "Error"
+  },
+  "Error": {
+    "tab": "Error",
+    "title": "Something went wrong!",
+    "help": "An unknown error has occurred. Please contact support for assistance.",
+    "actions": {
+      "reload": "Reload"
+    }
+  },
+  "SwitchLanguage": {
+    "name": "SwitchLanguage",
+    "english": "English",
+    "spanish": "Spanish",
+    "portuguese": "Portuguese"
+  }
+}

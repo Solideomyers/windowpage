@@ -1,0 +1,113 @@
+import { format } from 'date-fns';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+import { breakpoints } from '@/config/breakpoints';
+import { Breakpoint } from '@/config/interfaces/breakpoints-interface';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+export function isValidGoogleMapsUrl(url: string): boolean {
+  const googleMapsRegex = /^https:\/\/www\.google\.com\/maps\/embed\?/;
+  return googleMapsRegex.test(url);
+}
+
+export function formatDate(date: Date): string {
+  return format(date, 'P');
+}
+
+export function parseDate(date: string): Date {
+  return new Date(date);
+}
+
+export const parseToPathUrl = (name: string): string => {
+  return name.replace(/[\s+-]+/g, '-').toLowerCase();
+};
+
+export const parseToNormalText = (pathUrl: string): string => {
+  return pathUrl
+    .replace(/-/g, ' - ')
+    .replace(/ - /g, '-')
+    .replace(/-(?!\s)/g, '- ')
+    .replace(/(?<!\s)\+/g, ' + ')
+    .replace(/\s+/g, ' ')
+    .trim();
+};
+
+/**
+ * Determines the initial breakpoint based on the window's inner width.
+ * If the code is executed in a non-browser environment (where `window` is undefined),
+ * it defaults to the provided `breakpointDefault` or the smallest breakpoint ('xs').
+ *
+ * @param {Breakpoint} [breakpoint] - Optional default breakpoint to use if `window` is undefined.
+ * @returns {Breakpoint} The initial breakpoint based on the current window width.
+ */
+export const getInitialBreakpoint = (breakpoint?: Breakpoint): Breakpoint => {
+  if (typeof window === 'undefined') {
+    return breakpoint || 'xs';
+  }
+
+  const width = window.innerWidth;
+  const sortedBreakpoints = Object.entries(breakpoints).sort(
+    (a, b) => b[1].min - a[1].min
+  );
+
+  for (const [key, value] of sortedBreakpoints) {
+    if (width >= value.min) {
+      return key as Breakpoint;
+    }
+  }
+  return 'xs';
+};
+
+/**
+ * Creates a debounced function that delays invoking the provided function until after the specified wait time has elapsed
+ * since the last time the debounced function was invoked.
+ *
+ * @template T - The type of the function to debounce.
+ * @param {T} func - The function to debounce.
+ * @param {number} wait - The number of milliseconds to delay.
+ * @returns {(...args: Parameters<T>) => void} - Returns the new debounced function.
+ *
+ * @example
+ * ```typescript
+ * const logMessage = (message: string) => {
+ *   console.log(message);
+ * };
+ *
+ * const debouncedLogMessage = debounce(logMessage, 2000);
+ *
+ * // Only the last call to debouncedLogMessage will be executed after 2 seconds
+ * debouncedLogMessage("Hello");
+ * debouncedLogMessage("Hello, again");
+ * debouncedLogMessage("Hello, after 2 seconds");
+ * ```
+ */
+
+export const debounce = <T extends (...args: any[]) => void>(
+  func: T,
+  wait: number
+): ((...args: Parameters<T>) => void) => {
+  let timeout: NodeJS.Timeout;
+  return (...args: Parameters<T>) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+};
+
+/**
+ * Returns the URL of the flag image corresponding to the given locale.
+ *
+ * @param locale - The locale code for which to get the flag image URL.
+ * @returns The URL of the flag image. If the locale is not found, returns the URL of the Spanish flag image.
+ */
+export const getFlagImageSrc = (locale: string): string => {
+  const flagImages: { [key: string]: string } = {
+    en: 'https://www.laventanaweb.com/images/united-kingdom.png',
+    es: 'https://www.laventanaweb.com/images/argentina.png',
+    pt: 'https://www.laventanaweb.com/images/brazil.png',
+    ch: 'https://www.laventanaweb.com/images/china.png',
+  };
+
+  return flagImages[locale] || flagImages['es'];
+};

@@ -1,0 +1,3 @@
+export const GOOGLE_MAP_SRC =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.6614925900303!2d-58.37334608778926!3d-34.612720372838204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a3359965437157%3A0xe74e89301b8ad768!2sLa%20Ventana%20-%20Barrio%20de%20Tango!5e0!3m2!1ses-419!2sve!4v1732924763127!5m2!1ses-419!2sve';
+export const IFRAME_TITLE = 'Google Map of La Ventana - Barrio de Tango';

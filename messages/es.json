@@ -1,0 +1,148 @@
+{
+  "RootLayout": {
+    "app_name": "La ventana",
+    "description": "El mundo del tango"
+  },
+  "HomePage": {
+    "searchBooking": {
+      "title": "reservá hoy tu show de tango en la ventana",
+      "about": "sobre",
+      "search": "Buscar",
+      "tipe_show": "Tipo de show",
+      "date": "Fecha",
+      "amount_pax": "Tipo de show"
+    }
+  },
+  "Ui": {
+    "btn_send": "enviar",
+    "btn_close": "Cerrar",
+    "btn_next": "Siguiente",
+    "form": {
+      "first_name": "Nombre",
+      "last_name": "Apellido",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "comment": "Commentario",
+      "to_subscribe": "Deseo subscribirme al newsletter",
+      "hotel": "Hotel",
+      "motif": "Motivo de su visita",
+      "date": "Fecha de su visita"
+    },
+    "pax": {
+      "pax_adults": "Número de adultos",
+      "pax_childrens": "Número de niños",
+      "total_pay": "total a pagar",
+      "discount": "Tengo un código de descuento"
+    },
+    "about_us": {
+      "modal_aboutus": "Sobre nosotros",
+      "btn_close": "Cerrar"
+    }
+  },
+  "Navigation": {
+    "title": "La ventana",
+    "description": "La Ventana web",
+    "salon": {
+      "label": "salón",
+      "href": "#salon"
+    },
+    "menu": {
+      "label": "menú",
+      "href": "#menu"
+    },
+    "show": {
+      "label": "show",
+      "href": "#shows"
+    },
+    "songs": {
+      "label": "canciones",
+      "href": "#canciones"
+    },
+    "contact": {
+      "label": "contacto",
+      "href": "#contacto"
+    },
+    "events": {
+      "label": "eventos",
+      "href": "#eventos"
+    },
+    "bookings": {
+      "label": "reservas",
+      "href": "#reservas"
+    },
+    "usd": {
+      "label": "usd",
+      "href": "/"
+    }
+  },
+  "ClassTango": {
+    "title": "disfrutá de una noche de tango en buenos aires",
+    "subTitle": "antes de la cena podrás contratar una clase de tango o una degustación de vinos"
+  },
+  "Menu": {
+    "title": "cena gourmet de 3 pasos con bebidas incluidas"
+  },
+  "Show": {
+    "title": "show de tango & folclore con 32 artistas en escena"
+  },
+  "Bookings": {
+    "title": "reservá tu entrada y disfruta del show más visitado de buenos aires"
+  },
+  "Reviews": {
+    "title": "opiniones de nuestros pasajeros",
+    "subTitle": "valoración total"
+  },
+  "NewsLetter": {
+    "title": "suscribite a nuestro newsletter"
+  },
+  "Contact": {
+    "title": "consultas"
+  },
+
+  "Contact-info": {
+    "schedule_info": {
+      "title": "abierto todos los días",
+      "sales": "Ventas",
+      "tango_lesson": "Clase de Tango",
+      "tasting_cellar": "Degustación en la bodega",
+      "dinner": "Cena",
+      "show": "Show"
+    },
+    "location_info": {
+      "title": "¿Dónde estamos?",
+      "city": "Buenos Aires",
+      "country": "Argentina"
+    },
+    "booking_info": {
+      "title": "reservas"
+    },
+    "social_media_info": {
+      "title": "siguenos en"
+    }
+  },
+  "Services": {
+    "title": "conozca todos los servicios de familia tango show argentina"
+  },
+  "Footer": {
+    "title": "Todos los derechos reservados por Ventana SRL - by Familia Tango Show Argentina"
+  },
+  "Flash": {
+    "close": "Cerrado",
+    "success": "Exitoso",
+    "error": "Error"
+  },
+  "Error": {
+    "tab": "Error",
+    "title": "Something went wrong!",
+    "help": "An unknown error has occurred. Please contact support for assistance.",
+    "actions": {
+      "reload": "Reload"
+    }
+  },
+  "SwitchLanguage": {
+    "name": "Cambiar idioma",
+    "english": "Inglés",
+    "spanish": "Español",
+    "portuguese": "Portugues"
+  }
+}
