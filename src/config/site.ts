@@ -77,4 +77,4 @@ export const siteConfig = {
       href: '/',
     },
   ],
-};
+} as const;
