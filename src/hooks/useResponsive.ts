@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from 'react';
 import { breakpoints } from '@/config/breakpoints';
 import { Breakpoint } from '@/config/interfaces/breakpoints-interface';
-import { debounce, getInitialBreakpoint } from '@/lib/utils';
+import { getInitialBreakpoint } from '@/lib/utils';
 
 /**
  * Custom hook to determine the current responsive breakpoint based on the window width.
