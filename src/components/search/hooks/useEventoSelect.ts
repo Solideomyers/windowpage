@@ -1,18 +1,25 @@
 import { SearchFormData } from '@/actions/search/types/search.types';
 import { useCallback, useMemo, useState } from 'react';
-import { Control, FieldValues, Path, PathValue, UseFormSetValue, useWatch } from 'react-hook-form';
+import {
+  Control,
+  FieldValues,
+  Path,
+  PathValue,
+  UseFormSetValue,
+  useWatch,
+} from 'react-hook-form';
 import { BookingFormData } from '@/actions/booking-form/types/booking-form.types';
-import { Show } from '@/api/shows/interfaces/show.interface';
+import { Show } from '@/app/[locale]/api/shows/interfaces/show.interface';
 
 // type Evento = {
 //   name:string
 //   value: string
 // }
-interface SelectionProps <T extends FieldValues> {
+interface SelectionProps<T extends FieldValues> {
   control: Control<T>;
   setValue: UseFormSetValue<T>;
   controlName: string;
-  data: Show[]
+  data: Show[];
   defaultValue?: string;
 }
 
@@ -32,36 +39,42 @@ interface SelectionProps <T extends FieldValues> {
  * @returns {boolean} open - The state indicating whether the selection dropdown is open.
  * @returns {Function} setOpen - The function to set the open state.
  */
-export const useEventoSelection = <T extends SearchFormData | BookingFormData>({control, setValue, data, defaultValue, controlName}:SelectionProps<T>) =>{
-const [open, setOpen] = useState(false)
+export const useEventoSelection = <T extends SearchFormData | BookingFormData>({
+  control,
+  setValue,
+  data,
+  defaultValue,
+  controlName,
+}: SelectionProps<T>) => {
+  const [open, setOpen] = useState(false);
 
   const eventoValue = useWatch({
     control,
-    name: controlName as Path<T>, 
+    name: controlName as Path<T>,
   });
 
   const handleEventoSelect = useCallback(
     (key: React.Key) => {
-      setValue(controlName as Path<T>, key.toString() as PathValue<T, Path<T>>, {
-        shouldValidate: true,
-        shouldDirty: true,
-      });
+      setValue(
+        controlName as Path<T>,
+        key.toString() as PathValue<T, Path<T>>,
+        {
+          shouldValidate: true,
+          shouldDirty: true,
+        }
+      );
       setOpen(false);
     },
     [setValue, controlName]
   );
   const selectedEventoName = useMemo(() => {
-    return (
-      data.find((e) => e.name === eventoValue)?.name ||
-      defaultValue
-    );
+    return data.find((e) => e.name === eventoValue)?.name || defaultValue;
   }, [eventoValue, data, defaultValue]);
 
-  
   return {
     selectedEventoName,
     handleEventoSelect,
     open,
-    setOpen
+    setOpen,
   };
-}
+};
