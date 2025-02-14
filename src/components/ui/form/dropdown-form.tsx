@@ -27,7 +27,7 @@ import {
 } from '@/components/ui/shadcn/command';
 import { BookingFormData } from '@/actions/booking-form/types/booking-form.types';
 import { FormControl, FormField, FormItem } from '@/components/ui/shadcn/form';
-import { Show } from '@/api/shows/interfaces/show.interface';
+import { Show } from '@/app/[locale]/api/shows/interfaces/show.interface';
 
 // type Evento = {
 //   name: string;

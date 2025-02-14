@@ -50,7 +50,7 @@ const pathname = usePathname()
       render={({ field: { value, onChange } }) => (
         <FormItem
           className={` ${
-            pathname.includes('/reservation')
+            pathname?.includes('/reservation') ?? false
               ? 'lg:max-w-[50rem]'
               : 'w-full max-w-[30rem] lg:w-[100%] lg:max-w-[30%]'
           } `}
