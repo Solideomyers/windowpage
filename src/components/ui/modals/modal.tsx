@@ -18,7 +18,6 @@ import {
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { ScrollArea } from '@/components/ui/shadcn/scroll-area';
-import { TextHeading } from '@/components/ui/textheading';
 import { useTranslations } from 'next-intl';
 
 interface ModalProps {
@@ -48,45 +47,6 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   const t = useTranslations('Ui');
 
-  // useEffect(() => {
-  //   const handleKeyDown = (e: KeyboardEvent) => {
-  //     const viewport = document.querySelector(
-  //       '[data-radix-scroll-area-viewport]'
-  //     );
-  //     if (!viewport) return;
-
-  //     const scrollAmount = 20;
-
-  //     const scrollActions: Record<string, () => void> = {
-  //       ArrowDown: () =>
-  //         viewport.scrollBy({ top: scrollAmount, behavior: 'smooth' }),
-  //       ' ': () => viewport.scrollBy({ top: scrollAmount, behavior: 'smooth' }),
-  //       ArrowUp: () =>
-  //         viewport.scrollBy({ top: -scrollAmount, behavior: 'smooth' }),
-  //       PageDown: () =>
-  //         viewport.scrollBy({ top: viewport.clientHeight, behavior: 'smooth' }),
-  //       PageUp: () =>
-  //         viewport.scrollBy({
-  //           top: -viewport.clientHeight,
-  //           behavior: 'smooth',
-  //         }),
-  //       Home: () => viewport.scrollTo({ top: 0, behavior: 'smooth' }),
-  //       End: () =>
-  //         viewport.scrollTo({ top: viewport.scrollHeight, behavior: 'smooth' }),
-  //     };
-
-  //     const action = scrollActions[e.key];
-  //     if (action) {
-  //       e.preventDefault();
-  //       action();
-  //     }
-
-  //     window.addEventListener('keydown', handleKeyDown);
-
-  //     return () => window.removeEventListener('keydown', handleKeyDown);
-  //   };
-  // }, []);
-
   useEffect(() => {
     if (isOpen) {
       const modalElement = document.getElementById('modal-content');
@@ -111,7 +71,8 @@ export const Modal: React.FC<ModalProps> = ({
 
       <DialogOverlay />
       <section>
-        <DialogContent aria-describedby='modal button'
+        <DialogContent
+          aria-describedby='modal button'
           className={cn(
             'w-screen max-w-[500px] md-xl:max-w-[550px] h-5/6 my-4 p-0 gap-0',
             'transform transition-all duration-300',
@@ -124,17 +85,13 @@ export const Modal: React.FC<ModalProps> = ({
           )}
         >
           <DialogHeader className='bg-gradient-to-l from-[#F5E286] via-[#F5E286] to-[#E8BE6C] w-full z-50 transition-transform duration-400 ease-out sticky top-0'>
-            <DialogTitle className='p-2 rounded-t-xl text-center min-h-[60px] flex items-center justify-center'>
-              <TextHeading
-                className={cn(
-                  'tracking-widest leading-relaxed py-4 text-wrap w-10/12 font-bold',
-                  bothImage ? 'uppercase' : 'capitalize'
-                )}
-                fontName='font-montserrat'
-                level={6}
-              >
-                <span className='px-4'>{title}</span>
-              </TextHeading>
+            <DialogTitle
+              className={cn(
+                'p-2 rounded-t-xl text-center min-h-[60px] flex items-center justify-center',
+                bothImage ? 'uppercase' : 'capitalize'
+              )}
+            >
+              <span className='px-4'>{title}</span>
             </DialogTitle>
           </DialogHeader>
           <ScrollArea
@@ -186,7 +143,7 @@ export const Modal: React.FC<ModalProps> = ({
                   onClick={() => setIsOpen(false)}
                   aria-label='cerrar modal'
                 >
-                  <span className='px-4 text-lg tracking-wide'>
+                  <span className='px-4 text-lg tracking-wide font-montserrat'>
                     {t('btn_close')}
                   </span>
                 </Button>

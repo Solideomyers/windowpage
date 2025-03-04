@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply overflow-y-scroll;
+  @apply scroll-smooth;
+  @apply overflow-visible;
+}
+
 body {
   font-family: var(--font-montserrat);
 }
@@ -15,15 +21,6 @@ body {
 .navbar,
 .footer {
   @apply w-full;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
 @layer base {
@@ -83,6 +80,26 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* @apply overflow-x-hidden; */
+  }
+}
+
+@layer components {
+  .header-content {
+    @apply fixed top-0 left-0 right-0 
+            h-24 min-h-24 max-h-24
+            w-full max-w-[100vw] 
+            z-10
+            overflow-hidden;
   }
 }
 

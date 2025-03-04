@@ -1,19 +1,17 @@
 import type { Service } from '@/types';
 import { ResponsiveServiceCard } from '@/components/services/responsive-card';
 import { useTranslations } from 'next-intl';
-
+import { cn } from '@/lib/utils';
 interface ServiceGridProps {
   services: Service[];
-  extend: string
+  extend: string;
 }
 
 export const ServiceGrid: React.FC<ServiceGridProps> = ({
   services,
-  extend
-}) => { 
-
+  extend,
+}) => {
   const t = useTranslations('Services');
-
 
   return (
     <div className='flex flex-col'>
@@ -33,11 +31,11 @@ export const ServiceGrid: React.FC<ServiceGridProps> = ({
       >
         {t('title')}
       </div>
-      <div className={`responsive-container grid ${extend} bg-pallete-black`}>
+      <div className={cn('responsive-container grid bg-pallete-black', extend)}>
         {services.map((service, i) => (
           <ResponsiveServiceCard key={i} service={service} />
         ))}
       </div>
     </div>
   );
-}
+};

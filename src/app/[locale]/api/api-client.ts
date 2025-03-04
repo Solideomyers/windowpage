@@ -8,7 +8,7 @@ class ApiClient {
       baseURL: baseUrl,
       timeout: 10000,
       headers: {
-      'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
       },
     });
 
@@ -20,7 +20,11 @@ class ApiClient {
       }
     );
   }
-  public async get<T>(url: string, params?: Record<string, unknown>, headers?: Record<string, string>): Promise<T> {
+  public async get<T>(
+    url: string,
+    params?: Record<string, unknown>,
+    headers?: Record<string, string>
+  ): Promise<T> {
     const response = await this.instance.get<T>(url, { params, headers });
     return response.data;
   }
@@ -31,6 +35,4 @@ class ApiClient {
   }
 }
 
-export const apiClient = new ApiClient(
-process.env.NEXT_PUBLIC_BASE_URL!
-);
+export const apiClient = new ApiClient(process.env.NEXT_PUBLIC_BASE_URL!);

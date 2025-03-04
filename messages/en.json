@@ -26,13 +26,13 @@
       "to_subscribe": "I want to subscribe to the newsletter",
       "hotel": "Hotel",
       "motif": "Reason for your visit",
-      "date":"Date of your visit"
+      "date": "Date of your visit"
     },
-    "pax":{
+    "pax": {
       "pax_adults": "Number of adults",
       "pax_childrens": "Number of minors",
       "total_pay": "total to pay",
-      "discount":"I have a discount code"
+      "discount": "I have a discount code"
     },
     "about_us": {
       "modal_aboutus": "About us"
@@ -142,5 +142,48 @@
     "english": "English",
     "spanish": "Spanish",
     "portuguese": "Portuguese"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, es {Spanish} en {English} pt {Portuguese} other {Unsupported Language}}"
+  },
+  "OptionsMenu": {
+    "vip": "VIP MENU",
+    "menu": "MENU - DINNER SHOW",
+    "show": "ONLY SHOW MENU",
+    "cocktails": "COCKTAILS",
+    "wines": "WINES",
+    "noon": "NOON MENU"
+  },
+  "Modals": {
+    "rse_modal": {
+      "heading": "corporate social responsibility",
+      "title": "<span>Familia Tango Show:</span>",
+      "subTitle": "<span>More than 40 years promoting culture and social commitment</span>",
+      "content": "<p>At Familia Tango Show, we have been preserving our tour for the world for more than four decades. As permanent ambassadors of Argentine cultural identity, our responsibility transcends art: we work with conviction and passion to positively impact society and preserve our authentic culture.</p>",
+      "programsTitle": "<h4>Educational Programs</h4>",
+      "programs": "<p>With the aim of bringing the richness of our culture closer to new generations, we invite schools from all over the country to live an experience that consists of:</p>",
+      "list_programs": "<li>Welcome words and cultural teaching.</li><li>Visits to our halls.</li><li>Tango class with our professional dancers</li><li>Diploma delivery</li><li>Snack</li>",
+      "service": "<h4>Free Solidarity Initiative</h4>",
+      "Solidarity": "<p>At Familia Tango Show, we believe in the responsibility of projecting beyond what we offer on our stages, providing a flow of energy for the soul.</p>",
+      "commitment": "<h4>Our Commitment</h4>",
+      "message": "<p>We are proud to be a bridge of help for those in need, driven by the conviction that together we can make a difference. At Familia Tango Show, our mission is to preserve our culture while building a supportive future for all Argentines.</p>"
+    },
+    "about_us": {
+      "description": [
+        "We are more than a company, we are a large family that since 1980 has maintained the customs of our ancestors that are important to the business.",
+        "Our family values and traditions are at the heart of everything we do, from gastronomy, shows, selection of suppliers and raw materials, we are also committed to our community by caring for the environment and participating in community actions.",
+        "We hope that when you visit us, you'll feel part of our family too!"
+      ],
+      "values": {
+        "honesty": "Honesty and transparency: Committed to being transparent in all our customer interactions and acting with integrity at all times.",
+        "service": "Personalized customer service: We value each customer as part of our family and strive to provide personalized service attentive to their individual needs.",
+        "quality": "Quality and excellence: We dedicate ourselves to offering the highest quality products/services and strive to improve experiences every day.",
+        "social": "Social responsibility: We commit to being good corporate citizens and positively contributing to our community through various social initiatives.",
+        "teamwork": "Teamwork and collaboration: We foster a collaborative work environment where all team members are valued and encouraged to contribute their unique ideas and skills.",
+        "respect": "Mutual respect and trust: We treat each other and our customers with respect and trust, creating lasting relationships based on integrity and mutual respect.",
+        "tradition": "Tradition and commitment: We take pride in our family roots and are committed to maintaining the traditions and values that have guided us throughout the years."
+      }
+    }
   }
 }

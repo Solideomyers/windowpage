@@ -97,7 +97,6 @@
   "Contact": {
     "title": "Inquéritos"
   },
-
   "Contact-info": {
     "schedule_info": {
       "title": "aberto todos os dias",
@@ -143,5 +142,48 @@
     "english": "Inglês",
     "spanish": "Espanhol",
     "portuguese": "Português"
+  },
+  "LocaleSwitcher": {
+    "label": "Cambiar idioma",
+    "locale": "{locale, select, es {Español} en {Inglês} pt {Português} other {Unsupported Language}}"
+  },
+  "OptionsMenu": {
+    "vip": "CARDAPIO VIP",
+    "menu": "CARDAPIO - JANTAR SHOW",
+    "show": "CARDAPIO SHOW SOMENTE",
+    "cocktails": "COCKTAILS",
+    "wines": "VHINOS",
+    "noon": "CARDAPIO DO MEIO-DIA"
+  },
+  "Modals": {
+    "rse_modal": {
+      "heading": "responsabilidade social empresarial",
+      "title": "<span>Família Tango Show:</span>",
+      "subTitle": "<span>Mais de 40 anos promovendo cultura e compromisso social</span>",
+      "content": "<p>Na Família Tango Show, levamos mais de quatro décadas conservando nosso passeio para o mundo. Como embaixadores permanentes da identidade cultural argentina. Nossa responsabilidade transcende a arte: trabalhamos com convicção e paixão para gerar impacto positivo na sociedade e preservar nossa autêntica cultura.</p>",
+      "programsTitle": "<h4>Programas Educativos</h4>",
+      "programs": "<p>Com o objetivo de aproximar a riqueza da nossa cultura às novas gerações, convidamos as escolas de todo o país a viver uma experiência que consiste em:</p>",
+      "list_programs": "<li>Palavras de boas-vindas e ensino cultural.</li><li>Visitas aos nossos salões.</li><li>Aula de Tango com nossos bailarinos profissionais</li><li>Entrega de diploma</li><li>Lanche</li>",
+      "service": "<h4>Iniciativa Solidária Gratuita</h4>",
+      "Solidarity": "<p>Na Família Tango Show, acreditamos na responsabilidade de projetar além do que oferecemos em nossos palcos, um fluxo de energia para a alma.</p>",
+      "commitment": "<h4>Nosso Compromisso</h4>",
+      "message": "<p>Nos orgulhamos de ser uma ponte de ajuda para quem precisa, impulsionados pela convicção de que juntos podemos fazer a diferença. Na Família Tango Show, nossa missão é preservar nossa cultura enquanto construímos um futuro solidário para todos os argentinos.</p>"
+    },
+    "about_us": {
+      "description": [
+        "Somos mais que uma empresa, somos uma grande família que desde 1980 mantém os costumes de nossos antepassados que são importantes para o negócio.",
+        "Nossos valores e costumes familiares estão no coração de tudo o que fazemos, desde a gastronomia, o espetáculo, a seleção de fornecedores e matérias-primas, também nos comprometemos com nossa comunidade cuidando do meio ambiente e participando de ações comunitárias.",
+        "Esperamos que ao nos visitar, você também se sinta parte de nossa família!"
+      ],
+      "values": {
+        "honesty": "Honestidade e transparência: Comprometidos em ser transparentes em todas as nossas interações com os clientes e agir com honestidade em todos os momentos.",
+        "service": "Serviço personalizado ao cliente: Valorizamos cada cliente como parte de nossa família e nos esforçamos para fornecer um serviço personalizado e atento às suas necessidades individuais.",
+        "quality": "Qualidade e excelência: Dedicamo-nos a oferecer produtos/serviços da mais alta qualidade e nos esforçamos para melhorar as experiências dia após dia.",
+        "social": "Responsabilidade social: Comprometemo-nos a ser bons cidadãos corporativos e contribuir positivamente para nossa comunidade através de diversas iniciativas sociais.",
+        "teamwork": "Trabalho em equipe e colaboração: Promovemos um ambiente de trabalho colaborativo onde todos os membros da equipe são valorizados e incentivados a contribuir com suas ideias e habilidades únicas.",
+        "respect": "Respeito e confiança mútua: Tratamos uns aos outros e nossos clientes com respeito e confiança, criando relacionamentos duradouros baseados em integridade e respeito mútuo.",
+        "tradition": "Tradição e compromisso: Orgulhamo-nos de nossas raízes familiares e estamos comprometidos em manter as tradições e valores que nos guiaram ao longo dos anos."
+      }
+    }
   }
 }

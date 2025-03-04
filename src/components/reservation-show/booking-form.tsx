@@ -1,27 +1,26 @@
+import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useValidation } from '@/hooks/useValidation';
 import { Button } from '@/components/ui/shadcn/button';
+import { bookingFormSchema } from '@/actions/booking-form/schemas/booking';
 import { cn } from '@/lib/utils';
-import {
+import { PersonalInfoForm } from '@/components/reservation-show/form/personal-info-form';
+import type {
   BookingFormData,
   BookingFormErrors,
 } from '@/actions/booking-form/types/booking-form.types';
-import { bookingFormSchema } from '@/actions/booking-form/schemas/booking';
-import { useValidation } from '@/hooks/useValidation';
-// import { useBookingForm } from '@/actions/booking-form/hooks/useBookingForm';
-import { toast, Toaster } from 'sonner';
-import { PersonalInfoForm } from '@/components/reservation-show/form/personal-info-form';
+
 import { PaxInfoForm } from '@/components/reservation-show/form/pax-info-form';
 import { Form } from '@/components/ui/shadcn/form';
-import { CheckboxForm } from './form/checkbox-form';
+import { CheckboxForm } from '@/components/reservation-show/form/checkbox-form';
 import { LoaderCircle, ChevronRight } from 'lucide-react';
-import { Discount } from './form/discount';
-import { fontMontserrat } from '@/fonts/fonts';
+import { Discount } from '@/components/reservation-show/form/discount';
 import { ButtonRadius } from '@/components/ui/enums/button-variants.enum';
 import { useBookingStore } from '@/store/bookingStore';
-import { useEffect } from 'react';
-// import { useBookingFlow } from '@/hooks/query/useBookingFlow';
-import { useTranslations } from 'next-intl';
+
+import { useFlash } from '@/providers/flash/flash';
 
 interface BookingFormProps {
   className?: string;
@@ -91,15 +90,8 @@ export const BookingForm = ({ className, dateInit }: BookingFormProps) => {
     control,
     handleSubmit,
     setValue,
-
     watch,
-    formState: {
-      errors,
-
-      isSubmitting,
-      isDirty,
-      isSubmitted,
-    },
+    formState: { errors, isSubmitting, isDirty, isSubmitted },
   } = methods;
 
   const adults = watch('pax.adults');
@@ -107,7 +99,11 @@ export const BookingForm = ({ className, dateInit }: BookingFormProps) => {
   const total = adults * adultPrice + childrens * childPrice;
   const errorDate = errors.fecha?.message;
   const fechaDate = watch('fecha');
+
+  const flash = useFlash();
+
   console.log({ errorDate: errorDate, dateInit, fechaDate });
+
   useEffect(() => {
     setValue('amount', total);
   }, [adults, childrens, setValue, total]);
@@ -122,7 +118,7 @@ export const BookingForm = ({ className, dateInit }: BookingFormProps) => {
 
     updateBookingData({ ...data, showSummary: true });
     if (isSubmitted) {
-      toast.success('Cargando la reserva...');
+      flash.success('Cargando la reserva...');
       console.log('reset');
     }
   };
@@ -131,7 +127,7 @@ export const BookingForm = ({ className, dateInit }: BookingFormProps) => {
     Object.keys(errors).forEach((key) => {
       const error = errors[key as keyof BookingFormErrors];
       if (error) {
-        toast.error(error.message);
+        flash.error(error.message || 'Unknown error');
       }
     });
   };
@@ -171,12 +167,12 @@ export const BookingForm = ({ className, dateInit }: BookingFormProps) => {
           <div className='pt-4 border-t'>
             <div className='flex flex-col justify-between items-center gap-2 mb-4'>
               <span
-                className={`text-xl font-extrabold font-sans uppercase ${fontMontserrat.className} tracking-wider sm:text-base`}
+                className={`text-xl font-extrabold uppercase font-montserrat tracking-wider sm:text-base`}
               >
                 {t('pax.total_pay')}
               </span>
               <span className='font-bold text-sm'>
-                {'USD'} <strong className='text-2xl'>{'total'}</strong>
+                USD <strong className='text-2xl'>{total}</strong>
               </span>
             </div>
 
@@ -210,7 +206,7 @@ export const BookingForm = ({ className, dateInit }: BookingFormProps) => {
                 {isSubmitting ? (
                   <>
                     <LoaderCircle className='mr-2 h-4 w-4 animate-spin' />
-                    <span className='capitalize'>{'procesando...'}</span>
+                    <span className='capitalize'>procesando...</span>
                   </>
                 ) : (
                   <>
@@ -224,13 +220,15 @@ export const BookingForm = ({ className, dateInit }: BookingFormProps) => {
             </div>
 
             <div className='flex flex-col gap-2 text-xs sm:text-sm text-center mt-4'>
-              <p>{'MENORES DE 10 AÑOS 50% DE DESCUENTO'}</p>
+              <p>MENORES DE 10 AÑOS 50% DE DESCUENTO</p>
               <p>
-                {"Atención: De acuerdo a nuestras políticas de cancelación, si el servicio se cancela el mismo día o Ud. no se presenta esa misma noche con la reserva activa, no se realizaran reintegros. Puede cancelar 24 HS antes del Show."}
+                Atención: De acuerdo a nuestras políticas de cancelación, si el
+                servicio se cancela el mismo día o Ud. no se presenta esa misma
+                noche con la reserva activa, no se realizaran reintegros. Puede
+                cancelar 24 HS antes del Show.
               </p>
             </div>
           </div>
-          <Toaster richColors />
         </form>
       </Form>
     </div>

@@ -41,7 +41,7 @@ export const DateForm = <T extends SearchFormData | BookingFormData>({
   label = 'label',
 }: FechaPickerProps<T>): JSX.Element => {
   const disableDates = (date: Date) => date < todayDate;
-const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <FormField
@@ -52,7 +52,7 @@ const pathname = usePathname()
           className={` ${
             pathname?.includes('/reservation') ?? false
               ? 'lg:max-w-[50rem]'
-              : 'w-full max-w-[30rem] lg:w-[100%] lg:max-w-[30%]'
+              : 'w-full max-w-[30rem] lg:w-[100%] lg:max-w-[100%]'
           } `}
         >
           <FormControl>

@@ -1,4 +1,4 @@
-import { InfoGrid } from "../info-grid";
+import { InfoGrid } from "@/components/contact-info/info-grid";
 
 export const MobileContactInfo = () => {
   

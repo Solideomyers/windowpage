@@ -1,4 +1,4 @@
-import LayoutWithNavbar from '@/app/[locale]/layout-with-navbar';
+import { LayoutWithNavbar } from '@/components/modules/layout-navbar/layout-with-navbar';
 import { NewShow } from '@/components/reservation-show/new-show';
 
 const Reservation = () => (

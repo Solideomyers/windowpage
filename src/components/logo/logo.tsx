@@ -1,19 +1,23 @@
-'use client';
+import { Fragment, Suspense, lazy } from 'react';
 
-import { useResponsive } from '@/hooks/useResponsive';
-import { ImageProps } from '@/types';
-import { MobileLogo } from './responsive/mobile-logo';
-import { TabletLogo } from './responsive/tablet-logo';
-import { DesktopLogo } from './responsive/desktop-logo';
+const MobileLogo = lazy(
+  () => import('@/components/logo/responsive/mobile-logo')
+);
+const TabletLogo = lazy(
+  () => import('@/components/logo/responsive/tablet-logo')
+);
+const DesktopLogo = lazy(
+  () => import('@/components/logo/responsive/desktop-logo')
+);
 
-export const Logo: React.FC<ImageProps> = (props) => {
-  const { currentBreakpoint } = useResponsive();
-  const { src, alt } = props;
-
-  if (['xs'].includes(currentBreakpoint)) return <MobileLogo src={src} alt={alt} />;
-
-  if (['sm', 'md'].includes(currentBreakpoint))
-    return <TabletLogo src={src} alt={alt} />;
-
-  return <DesktopLogo src={src} alt={alt} />;
+export const Logo = ({ src, alt }: { src: string; alt: string }) => {
+  return (
+    <Fragment>
+      <Suspense fallback={<div>Loading...</div>}>
+        <MobileLogo src={src} alt={alt} />
+        <TabletLogo src={src} alt={alt} />
+        <DesktopLogo src={src} alt={alt} />
+      </Suspense>
+    </Fragment>
+  );
 };

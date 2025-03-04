@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { VideoModal } from '@/components/ui/modals/vimeo-modal';
+import { CustomImg } from '@/components/custom/custom-img';
 
-export const SalonesClient: React.FC = () => {
+export const SalonesClient = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoUrl, setVideoUrl] = useState('');
 
@@ -19,8 +19,8 @@ export const SalonesClient: React.FC = () => {
   };
 
   return (
-    <>
-      <div
+    <section>
+      <article
         onClick={() =>
           handleOpenModal(
             'https://player.vimeo.com/video/689651119?autoplay=1&loop=1&autopause=0'
@@ -29,29 +29,24 @@ export const SalonesClient: React.FC = () => {
         aria-label='ver salones'
       >
         <div>
-          <Image
-            priority
-            loading='eager'
+          <CustomImg
+            src='https://www.laventanaweb.com/images/salon.jpg'
             alt='La Ventana Salon'
             width={1000}
             height={1000}
-            data-src='https://www.laventanaweb.com/images/salon.jpg'
-            style={{
-              objectFit: 'cover',
-              width: '100%',
-              height: '100%',
-            }}
-            src='https://www.laventanaweb.com/images/salon.jpg'
+            priority
+            extend='object-cover w-full h-full cursor-pointer'
           />
         </div>
-      </div>
+      </article>
 
       {/* Video Modal */}
       <VideoModal
         videoUrl={videoUrl}
         isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
         onClose={handleCloseModal}
       />
-    </>
+    </section>
   );
 };

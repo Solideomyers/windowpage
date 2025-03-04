@@ -1,9 +1,10 @@
 import en from './messages/en.json' assert {type: "json"};
 import { routing } from '@/i18n/routing';
 
-type Messages = typeof en;
 
 declare global {
+  type Messages = typeof en;
+  
   // Use type safe message keys with `next-intl`
   interface IntlMessages extends Messages {}
 

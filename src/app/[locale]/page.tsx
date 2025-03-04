@@ -9,14 +9,17 @@ import { Anexo } from '@/components/anexo/anexo';
 import { Salones } from '@/components/salones/salones';
 import { Search } from '@/components/search/search';
 import { DynamicVimeoHome } from '@/components/vimeo/dynamic-vimeo';
-import LayoutWithNavbar from './layout-with-navbar';
+import { LayoutWithNavbar } from '@/components/modules/layout-navbar/layout-with-navbar';
+
 const Home = () => {
+
   return (
     <LayoutWithNavbar>
       <main
         id='home'
         className={`
     responsive-container
+    mt-24
     
     `}
       >

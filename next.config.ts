@@ -1,10 +1,10 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  crossOrigin: 'anonymous',
+  // crossOrigin: 'anonymous',
   images: {
     remotePatterns: [
       {
@@ -18,49 +18,15 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['@heroui/react'],
+    webpackBuildWorker: true,
+    parallelServerBuildTraces: true,
+    parallelServerCompiles: true,
+
     serverActions: {
       allowedOrigins: [process.env.NEXT_PUBLIC_BASE_URL || ''],
     },
   },
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/api/:path*',
-  //       destination: '/app/[locale]/api/:path*',
-  //       locale: false,
-  //     },
-  //   ];
-  // },
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          // {
-          //   key: 'Cache-Control',
-          //   value: 'public, max-age=31536000, inmutable',
-          // },
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-          {
-            key: 'Access-Control-Allow-Methods',
-            value: 'GET, POST, PUT, DELETE',
-          },
-          {
-            key: 'Access-Control-Allow-Headers',
-            value:
-              'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
-          },
-          {
-            key: 'Access-Control-Allow-Credentials',
-            value: 'true',
-          },
-        ],
-      },
-    ];
-  },
+  
 };
 
 const nextConfigTranslate = withNextIntl(nextConfig);

@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/enums/button-variants.enum';
 
 import { ChevronLeft as BackIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface MenuOptionsProps {
   setStep: (step: boolean) => void;
@@ -15,8 +16,9 @@ interface MenuOptionsProps {
 
 
 export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
+const t = useTranslations('OptionsMenu');
 
-
+  
   return (
     <div className='relative z-10 flex flex-col items-center gap-2 w-full'>
       <Button
@@ -26,7 +28,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        {"menú vip"}
+        {t('vip')}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -35,7 +37,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        {"menú - cena show"}
+        {t('menu')}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -44,7 +46,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        {"menú solo show"}
+        {t('show')}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -53,7 +55,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        {"cocktails"}
+        {t('cocktails')}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -62,7 +64,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        {"vinos"}
+        {t('wines')}
       </Button>
       <Button
         variant={ButtonVariant.Default}
@@ -71,7 +73,7 @@ export const MenuOptions:React.FC<MenuOptionsProps> = ({setStep}) => {
 
         className='uppercase text-black px-5 py-6 text-xl cursor-pointer font-montserrat tracking-wide justify-center w-9/12 font-semibold'
       >
-        {"menú mediodia"}
+        {t('noon')}
       </Button>
       <Button
         variant={ButtonVariant.Default}

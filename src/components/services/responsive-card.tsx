@@ -25,15 +25,14 @@ export const ResponsiveServiceCard: React.FC<{ service: Service }> = ({
           width={1000}
           height={1000}
           extend={`
-        flex
-        justify-center
-        w-full
-        aspect-square 
-        object-cover
-        `}
+    flex
+    justify-center
+    w-full
+    aspect-square 
+    object-cover
+    `}
         />
       </Link>
-      {/* <h3 className='responsive-text mt-4'>{service.name}</h3> */}
     </div>
   );
 };

@@ -7,7 +7,7 @@ import { AnexoClient } from '@/components/anexo/anexo-client';
 import { useTranslations } from 'next-intl';
 
 export const Anexo: React.FC = () => {
-  const { currentBreakpoint } = useResponsive();
+  const { currentBreakpoint } = useResponsive('xs');
   const levelText = currentBreakpoint === 'xs' ? 5 : 4;
 
   const t = useTranslations('ClassTango');

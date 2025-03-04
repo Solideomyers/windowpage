@@ -1,31 +1,24 @@
-import { ImageProps } from "@/types";
-import Image from "next/image";
+import { CustomImg } from '@/components/custom/custom-img';
+import { LogoBase } from '@/components/logo/logo-base';
 
-export const MobileLogo: React.FC<ImageProps> = ({
+export default function MobileLogo  ({
   src,
   alt = 'logo la-ventana mobile',
-}) => {
+}: {
+  src: string;
+  alt: string;
+})  {
   return (
-    <div
-      className={`
-        relative 
-        w-[80px] 
-        h-auto 
-        mx-auto 
-        transition-all 
-        duration-300 
-        ease-in-out
-      `}
-    >
-      <Image
+    <LogoBase >
+      <CustomImg
         src={src}
         alt={alt}
         priority
         quality={75}
         width={150}
         height={150}
-        className='object-contain w-full h-full'
+        extend='sm:hidden object-contain w-full h-full'
       />
-    </div>
+    </LogoBase>
   );
 };

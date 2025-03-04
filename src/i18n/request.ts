@@ -4,23 +4,18 @@ import { routing } from '@/i18n/routing';
 export default getRequestConfig(async ({ requestLocale }) => {
   // This typically corresponds to the `[locale]` segment
   let locale = await requestLocale;
-
+  const localeFallback = routing.locales[1];
+  
   if (!locale || !routing.locales.includes(locale as Locale)) {
-    locale = routing.locales[1];
+    locale = routing.defaultLocale;
   }
-
-  try {
-    const messages = (
-      await (locale === 'es'
-        ? import('../../messages/es.json')
+  
+  return {
+    locale,
+    messages: (
+      await (locale === localeFallback
+        ? import(`../../messages/${localeFallback}.json`)
         : import(`../../messages/${locale}.json`))
-    ).default;
-    return {
-      locale,
-      messages,
-    };
-  } catch (error) {
-    console.error(`Error loading messages: ${error}`);
-    throw error;
-  }
+    ).default,
+  };
 });

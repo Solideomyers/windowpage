@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { animate } from 'framer-motion';
 
 export const useSmoothScroll = () => {
+  console.log('useSmoothScroll');
   const handleSmoothScroll = useCallback((id: string) => {
     const targetElement = document.getElementById(id);
     if (!targetElement) return;

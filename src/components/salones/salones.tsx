@@ -1,6 +1,6 @@
-import { SalonesClient } from './salones-client';
+import { SalonesClient } from "@/components/salones/salones-client";
 
-export const Salones: React.FC = () => {
+export const Salones = () => {
   return (
     <section>
       <SalonesClient />

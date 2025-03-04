@@ -1,13 +1,14 @@
-import { CustomImg } from "@/components/custom/custom-img";
-import { Schedule } from "@/components/icons";
+import { CustomAvatar } from '@/components/custom/custom-avatar';
+import { Schedule } from '@/components/icons';
+import { MobileMenu } from '@/components/navbar/mobile/mobile-menu';
+import { SwitchLanguage } from '@/components/ui/language/btn-language';
 
-const NavMobile: React.FC = () => {
+const NavMobile = () => {
   return (
     <div
       className={`
-    z-30
-    grid
-    grid-cols-3
+        grid
+    grid-cols-4
     w-full
     grid-flow-col-dense
     place-content-center
@@ -22,7 +23,6 @@ const NavMobile: React.FC = () => {
         place-items-center
         col-span-1
         col-start-1
-        px-2
         min-h-24
         min-w-20
         bg-pallete-gold
@@ -41,23 +41,10 @@ const NavMobile: React.FC = () => {
       </div>
       <div
         className={`
-        grid
-        place-items-center
-        place-content-center
-        w-full
         col-span-1
-        col-start-2
-        h-full
-        px-4
-        max-w-[80px]
         `}
       >
-        <CustomImg
-          src={'/argentina.png'}
-          alt={'flag'}
-          width={300}
-          height={300}
-        />
+        <SwitchLanguage />
       </div>
       <div
         className={`
@@ -70,15 +57,19 @@ const NavMobile: React.FC = () => {
         col-start-3
         p-4
         max-w-[80px]
+        border-l-1 
+        border-pallete-anexo/60
         `}
       >
-        <CustomImg
+        <CustomAvatar
           src={'/btn_whatsapp.png'}
           alt='icon whatsapp'
           width={300}
           height={300}
+          extend='border-l-1 border-pallete-anexo/60'
         />
       </div>
+      <MobileMenu />
     </div>
   );
 };

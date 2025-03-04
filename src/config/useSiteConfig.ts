@@ -1,27 +1,28 @@
-// useSiteConfig.ts
 import { useTranslations } from 'next-intl';
-import { siteConfig } from './site';
+import { siteConfig } from '@/config/site';
 
-// 1. Extraer las claves válidas de navigation desde siteConfig
+// 1. Extract valid navigation keys from siteConfig
 type NavItem = (typeof siteConfig.navItems)[number];
+
 type NavigationKey = NavItem['label'];
 
-// 2. Tipo para claves de traducción anidadas
-type NestedTranslationKey = `${NavigationKey}.${'label' | 'href'}`;
+// 2. Type for nested translation keys
+type NestedTranslationKey = `${'salon' | 'menu' | 'show' | 'songs' | 'contact' | 'events' | 'bookings' | 'usd'}.${'label' | 'href'}`;
 
 export const useSiteConfig = () => {
   const t = useTranslations('Navigation');
 
-  // 3. Función de procesamiento genérica con tipos seguros
-  const processItems = <T extends readonly { label: NavigationKey; href: string }[]>(
+  // 3. Generic processing function with type safety
+  const processItems = <
+    T extends readonly { label: NavigationKey; href: string | { pathname: string; params: Record<string, string> } }[]
+  >(
     items: T
   ) =>
     items.map((item) => ({
       ...item,
       label: t(`${item.label}.label` as NestedTranslationKey),
-      href: t(`${item.label}.href` as NestedTranslationKey, {
-        default: item.href,
-      }),
+      href: typeof item.href === 'string' ? item.href : item.href.pathname,
+      
     }));
 
   return {

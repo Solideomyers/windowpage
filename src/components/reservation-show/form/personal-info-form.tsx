@@ -12,7 +12,7 @@ import {
   UseFormSetValue,
 } from 'react-hook-form';
 import { BookingFormData } from '@/actions/booking-form/types/booking-form.types';
-import { eventos } from '@/components/search/mock/data';
+import { visitas } from '@/components/search/mock/data';
 
 interface PersonalInfoProps<T extends FieldValues> {
   dateInit: Date;
@@ -45,7 +45,7 @@ export const PersonalInfoForm = <T extends BookingFormData>({
       <div>
         {/* date */}
         <label className='block text-sm font-medium mb-1'>
-          {"Fecha de su visita"}
+          Fecha de su visita
         </label>
         <DateForm
           variant={ButtonVariant.Underline}
@@ -99,7 +99,7 @@ export const PersonalInfoForm = <T extends BookingFormData>({
       {/* motif */}
       <div>
         <label className='block text-sm font-medium mb-1'>
-          {"Motivo de su visita"}
+          Motivo de su visita
         </label>
         <DropdownForm
           variant={ButtonVariant.Underline}
@@ -107,7 +107,7 @@ export const PersonalInfoForm = <T extends BookingFormData>({
           isLabel={false}
           isIcon={false}
           controlName='motif'
-          data={eventos}
+          data={visitas}
           control={control}
           setValue={setValue}
           defaultValue='Aniversario...'

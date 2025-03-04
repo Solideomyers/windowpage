@@ -61,23 +61,23 @@ export const getInitialBreakpoint = (breakpoint?: Breakpoint): Breakpoint => {
 };
 
 /**
- * Creates a debounced function that delays invoking the provided function until after 
+ * Creates a debounced function that delays invoking the provided function until after
  * the specified wait time has elapsed since the last time the debounced function was invoked.
- * 
- * @template P - Tipo de los parámetros de la función original.
- * @param func - Función a debouncear.
- * @param wait - Tiempo de espera en milisegundos.
- * @returns Función debounceada con los mismos parámetros que la original.
- * 
+ *
+ * @template P - Type of the original function's parameters.
+ * @param func - Function to debounce.
+ * @param wait - Wait time in milliseconds.
+ * @returns Debounced function with the same parameters as the original.
+ *
  * @example
  * ```typescript
  * const logMessage = (message: string) => {
  *   console.log(message);
  * };
- * 
+ *
  * const debouncedLogMessage = debounce(logMessage, 2000);
- * 
- * debouncedLogMessage("Hello"); // Sólo esta llamada se ejecutará después de 2 segundos
+ *
+ * debouncedLogMessage("Hello"); // Only this call will be executed after 2 seconds
  * ```
  */
 export const debounce = <P extends unknown[]>(

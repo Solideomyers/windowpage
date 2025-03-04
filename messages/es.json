@@ -98,7 +98,6 @@
   "Contact": {
     "title": "consultas"
   },
-
   "Contact-info": {
     "schedule_info": {
       "title": "abierto todos los días",
@@ -144,5 +143,48 @@
     "english": "Inglés",
     "spanish": "Español",
     "portuguese": "Portugues"
+  },
+  "LocaleSwitcher": {
+    "label": "Cambiar idioma",
+    "locale": "{locale, select, es {Español} en {Inglés} pt {Portugues} other {Unsupported Language}}"
+  },
+  "OptionsMenu": {
+    "vip": "MENÚ VIP",
+    "menu": "MENÚ - CENA SHOW",
+    "show": "MENÚ SOLO SHOW",
+    "cocktails": "COCKTAILS",
+    "wines": "VINOS",
+    "noon": "MENÚ MEDIODIA"
+  },
+  "Modals": {
+    "rse_modal": {
+      "heading": "responsabilidad social empresarial",
+      "title": "<span>Familia Tango Show:</span>",
+      "subTitle": "<span>Más de 40 años promoviendo cultura y compromiso social</span>",
+      "content": "<p>En Familia Tango Show, llevamos más de cuatro décadas conservando nuestro paseo para el mundo. Como embajadores permanentes de la identidad cultural argentina. Nuestra responsabilidad trasciende el arte: trabajamos con convicción y pasión para generar impacto positivamente en la sociedad y preservar nuestra auténtica cultura.</p>",
+      "programsTitle": "<h4>Programas Educativos</h4>",
+      "programs": "<p>Con el objetivo de acercar la riqueza de nuestra cultura a las nuevas generaciones, invitamos a las escuelas de todo el país a vivir una experiencia que consiste en:</p>",
+      "list_programs": "<li>Palabras de bienvenida y enseñansa cultural.</li><li>Visitas de nuestros salones.</li><li>Clase Tango con nuestros bailarines profesionales</li><li>Entrega de diploma</li><li>Snack</li>",
+      "service": "<h4>Iniciativa Solidaria Gratuita</h4>",
+      "Solidarity": "<p>En Familia Tango Show creemos en la responsabilidad de proyectar mas allá de lo alto ofrecemos en nuestras tablas un flujo de energía para el alma.</p>",
+      "commitment": "<h4>Nuestro Compromiso</h4>",
+      "message": "<p>Nos enorgullece ser un puente de ayuda para quienes lo necesitan, impulsados por la convicción que juntos podemos marcar la diferencia. En Familia Tango Show, nuestra misión es preservar nuestra cultura mientras construimos un futuro solidario para todos los argentinos.</p>"
+    },
+    "about_us": {
+      "description": [
+        "Somos más que una empresa, somos una gran familia que desde 1980 viene manteniendo las costumbres de nuestros antepasados que son importantes para la empresa.",
+        "Nuestros valores y costumbres familiares son el corazón de todo lo que hacemos, desde la gastronomía, el show, la selecciones de nuestros proveedores y materias primas, nos comprometemos también con nuestra comunidad cuidando el medioambiente y participando de acciones comunitarias.",
+        "Esperemos que al visitarnos se sientan también parte de nuestra familia!"
+      ],
+      "values": {
+        "honesty": "Honestidad y transparencia: Comprometidos a ser transparentes en todas nuestras interacciones con los clientes y a actuar con honestidad en todo momento.",
+        "service": "Servicio al cliente personalizado: Valoramos a cada cliente como parte de nuestra familia y nos esforzamos por brindar un servicio personalizado y atento a sus necesidades individuales.",
+        "quality": "Calidad y excelencia: Nos dedicamos a ofrecer productos/servicios de la más alta calidad y nos esforzamos por mejorar las experiencias día a día.",
+        "social": "Responsabilidad social: Nos comprometemos a ser buenos ciudadanos corporativos y a contribuir positivamente a nuestra comunidad a través de diversas iniciativas sociales.",
+        "teamwork": "Trabajo en equipo y colaboración: Fomentamos un ambiente de trabajo colaborativo donde todos los miembros del equipo son valorados y se les anima a contribuir con sus ideas y habilidades únicas.",
+        "respect": "Respeto y confianza mutua: Nos tratamos entre nosotros y a nuestros clientes con respeto y confianza, creando relaciones duraderas basadas en la integridad y el respeto mutuo.",
+        "tradition": "Tradición y compromiso: Nos enorgullecemos de nuestras raíces familiares y estamos comprometidos a mantener las tradiciones y valores que nos han guiado a lo largo de los años."
+      }
+    }
   }
 }

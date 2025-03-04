@@ -8,7 +8,7 @@ import {
   useMemo,
 } from 'react';
 import { Toaster, toast } from 'sonner';
-// import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 /**
  * Defines the type of the flash messages context.
@@ -44,7 +44,7 @@ export interface FlashProviderProps {
  * In this example, Sonner is used for toast visualization.
  */
 export function FlashProvider({ children }: FlashProviderProps) {
-  // const t = useTranslations('Flash');
+  const t = useTranslations('Flash');
 
   // Function to show an error. Configures an infinite duration for the user to manually dismiss it.
   const error = useCallback((message: string, timeout = 1000) => {
@@ -67,7 +67,7 @@ export function FlashProvider({ children }: FlashProviderProps) {
           success: (data: { name: string }) => {
             return `${data.name}`;
           },
-          error: 'Error',
+          error: t('error'),
           duration: timeout,
         });
       } else {
@@ -76,7 +76,7 @@ export function FlashProvider({ children }: FlashProviderProps) {
         });
       }
     },
-    []
+    [t]
   );
 
   // Function to clear all notifications.

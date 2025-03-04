@@ -1,6 +1,6 @@
-import {VideoSrc} from '@/components/vimeo/video-src';
+import { VideoSrc } from '@/components/vimeo/video-src';
 
-export const VimeoVideo: React.FC = () => {
+export const VimeoVideo = () => {
   const videoConfig = {
     videoId: '386224073',
     autoplay: true,
@@ -12,7 +12,7 @@ export const VimeoVideo: React.FC = () => {
   return (
     <section
       id='video'
-      className='bg-black  relative'
+      className='bg-black relative'
       aria-label='Video promocional'
     >
       <div className='aspect-video w-full'>

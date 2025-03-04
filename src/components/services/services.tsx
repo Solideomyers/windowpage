@@ -1,31 +1,11 @@
-'use client';
+import { ServiceGrid } from '@/components/services/service-grid';
+import { mockService } from '@/mocks/service-mocks';
 
-import { useResponsive } from '@/hooks/useResponsive';
-import { MobileServices } from './responsive/services-mobile';
-import { TabletServices } from './responsive/services-tablet';
-import { DesktopServices } from './responsive/services-desktop';
-import type { Service } from '@/types';
-
-export const Services: React.FC = () => {
-  const { currentBreakpoint } = useResponsive();
-  const breakpointConfig = {
-    xs: {
-      Component: MobileServices,
-      filter: (s: Service) => s.mobile,
-    },
-    'sm|md': {
-      Component: TabletServices,
-      filter: () => true,
-    },
-    'lg|xl|2xl|3xl': {
-      Component: DesktopServices,
-      filter: (s: Service) => s.desktop,
-    },
-  };
-
-  const config = Object.entries(breakpointConfig).find(([key]) =>
-    key.split('|').includes(currentBreakpoint)
-  )?.[1];
-
-  return config ? <config.Component /> : null;
+export const Services = () => {
+  return (
+    <ServiceGrid
+      services={mockService.filter((s) => s.desktop)}
+      extend='grid-cols-3 gap-4 py-4 sm:grid-cols-6 sm:py-8 lg:grid-cols-7 lg:py-8 lg:gap-8'
+    />
+  );
 };

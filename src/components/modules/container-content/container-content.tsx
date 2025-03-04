@@ -1,5 +1,5 @@
-import FooterContent from "@/components/modules/footer/footer-content";
-import MainContent from "@/components/modules/main/main-content";
+import FooterContent from '@/components/modules/footer/footer-content';
+import MainContent from '@/components/modules/main/main-content';
 
 const ContainerContent = ({
   children,
@@ -12,7 +12,8 @@ const ContainerContent = ({
       id='container-content'
       className={`
         relative
-        mt-[4rem]
+        mt-0 
+        z-0
         w-full
         min-h-screen
         flex
@@ -20,12 +21,7 @@ const ContainerContent = ({
         min-w-screen        
         `}
     >
-      <MainContent 
-      >
-        {children}
-
-
-      </MainContent>
+      <MainContent>{children}</MainContent>
 
       <FooterContent />
     </main>

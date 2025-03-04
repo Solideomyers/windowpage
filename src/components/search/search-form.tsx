@@ -18,7 +18,7 @@ import { useRouter } from '@/i18n/routing';
 
 import { LoaderCircle } from 'lucide-react';
 import { formatDate, parseToPathUrl } from '@/lib/utils';
-// import { useShowStore } from '@/store/showStore';
+
 import { ButtonRadius } from '@/components/ui/enums/button-variants.enum';
 import { useBookingStore } from '@/store/bookingStore';
 import { useGetShows } from '@/hooks/query/useGetShows';
@@ -30,7 +30,6 @@ export const SearchForm: React.FC = () => {
   const { search, loading } = useSearch();
   const router = useRouter();
   const { data, isLoading } = useGetShows();
-  // const { shows } = useShowStore();
   const { setField } = useBookingStore();
 
   const t = useTranslations('HomePage.searchBooking');
@@ -73,10 +72,9 @@ export const SearchForm: React.FC = () => {
       const fecha = data.fecha ? formatDate(data.fecha) : '';
       const pax = data.pasajeros;
 
-      const url = `/reservation/${evento}?fecha=${fecha}&pax=${pax}`;
       setField('fecha', initialDate);
-      flash.success('En progreso...', 'promise', 3000);
-      router.push(url);
+      flash.success('En progreso...', 'promise', 300);
+      router.push({ pathname: `/reservation/[show]`, params:{show: evento}, query: {fecha: fecha, pax: pax} });
       reset();
     }
   };

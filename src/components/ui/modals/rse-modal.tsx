@@ -1,69 +1,50 @@
 'use client';
 
 import { useState } from 'react';
-
 import { Modal } from '@/components/ui/modals/modal';
+import { useTranslations } from 'next-intl';
+
+import { MessageKeys } from 'next-intl';
+
+const RichText: React.FC<{ id: MessageKeys<{ heading: string; title: string; subTitle: string; content: string; programsTitle: string; programs: string; list_programs: string; service: string; Solidarity: string; commitment: string; message: string; }, "title" | "subTitle" | "content" | "programsTitle" | "programs" | "list_programs" | "service" | "Solidarity" | "commitment" | "message">; tag: keyof JSX.IntrinsicElements; className?: string }> = ({ id, tag: Tag, className = '' }) => {
+  const t = useTranslations('Modals.rse_modal');
+  return t.rich(id, {
+    [Tag]: (chunks) => <Tag className={className}>{chunks}</Tag>,
+  });
+};
 
 export const RseModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  
-  
-  const content = (
-    <div className='flex flex-col gap-2 font-montserrat'>
-      <p className='transition-opacity duration-300 ease-in-out'>
-        <span className='font-bold mr-2'>Familia Tango Show:</span>
-        Más de 40 años promoviendo cultura y compromiso social
-      </p>
-      <p className='transition-all duration-300 ease-in-out text-balance'>
-        En Familia Tango Show, llevamos más de cuatro décadas conservando
-        nuestro paseo para el mundo. Como embajadores permanentes de la
-        identidad cultural argentina. Nuestra responsabilidad trasciende el
-        arte: trabajamos con convicción y pasión para generar impacto
-        positivamente en la sociedad y preservar nuestra auténtica cultura.
-      </p>
-
-      <div className='transition-all duration-300 ease-in-out'>
-        <h4 className='font-bold'>Programas Educativos</h4>
-        <p>
-          Con el objetivo de acercar la riqueza de nuestra cultura a las nuevas
-          generaciones, invitamos a las escuelas de todo el país a vivir una
-          experiencia que consiste en:
-        </p>
-        <ul className='list-disc pl-6 mt-2 space-y-1'>
-          <li>Palabras de bienvenida y enseñansa cultural.</li>
-          <li>Visitas de nuestros salones.</li>
-          <li>Clase Tango con nuestros bailarines profesionales</li>
-          <li>Entrega de diploma</li>
-          <li>Snack</li>
-        </ul>{' '}
-      </div>
-      <div>
-        <h4 className='font-bold'>Iniciativa Solidaria Gratuita</h4>
-        <p className='transition-all duration-300 ease-in-out'>
-          En Familia Tango Show creemos en la responsabilidad de proyectar mas
-          allá de lo alto ofrecemos en nuestras tablas un flujo de energía para
-          el alma.
-        </p>
-      </div>
-      <div>
-        <h4 className='font-bold'>Nuestro Compromiso</h4>
-        <p className='transition-all duration-300 ease-in-out'>
-          Nos enorgullece ser un puente de ayuda para quienes lo necesitan,
-          impulsados por la convicción que juntos podemos marcar la diferencia.
-          En Familia Tango Show, nuestra misión es preservar nuestra cultura
-          mientras construimos un futuro solidario para todos los argentinos.
-        </p>
-      </div>
-    </div>
-  );
+  const t = useTranslations('Modals.rse_modal');
 
   return (
     <Modal
       triggerText='rse'
-      content={content}
-      title={'responsabilidad social empresarial'}
-      imageSrcTop={'/rse/tango-show-rse.png'}
-      imageAltTop={'RSE modal image'}
+      content={
+        <div className='flex flex-col gap-2 font-montserrat'>
+          <RichText id='title' tag='span' className='font-bold mr-2' />
+          <RichText id='subTitle' tag='span' />
+          <RichText id='content' tag='p' className='transition-all duration-300 ease-in-out text-balance' />
+          <div className='transition-all duration-300 ease-in-out'>
+            <RichText id='programsTitle' tag='h4' className='font-bold' />
+            <RichText id='programs' tag='p' />
+            <ul className='list-disc pl-6 mt-2 space-y-1'>
+              <RichText id='list_programs' tag='li' />
+            </ul>
+          </div>
+          <div>
+            <RichText id='service' tag='h4' className='font-bold' />
+            <RichText id='Solidarity' tag='p' className='transition-all duration-300 ease-in-out' />
+          </div>
+          <div>
+            <RichText id='commitment' tag='h4' className='font-bold' />
+            <RichText id='message' tag='p' className='transition-all duration-300 ease-in-out' />
+          </div>
+        </div>
+      }
+      title={t('heading')}
+      imageSrcTop='/rse/tango-show-rse.png'
+      imageAltTop='RSE modal image'
       isOpen={isOpen}
       setIsOpen={setIsOpen}
     />

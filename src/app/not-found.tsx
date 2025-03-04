@@ -1,14 +1,12 @@
-'use client';
+import BaseLayout from '@/components/modules/layouts/base-layout';
+import NotFoundPage from '@/components/no-found/not-found-page';
+import { routing } from '@/i18n/routing';
 
-import Error from 'next/error';
 
-export default function NotFound() {
+export default function GlobalNotFound() {
   return (
-    <html lang='en'>
-      <body>
-        <Error statusCode={401} />
-        <h1>hola</h1>
-      </body>
-    </html>
+    <BaseLayout locale={routing.defaultLocale}>
+      <NotFoundPage />
+    </BaseLayout>
   );
 }

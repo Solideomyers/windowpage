@@ -1,18 +1,18 @@
 import { HeaderContent } from '@/components/modules/header/header-content';
 import ContainerContent from '@/components/modules/container-content/container-content';
+import { Fragment } from 'react';
 
-export default function LayoutWithNavbar({
+export const LayoutWithNavbar = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
-    <section>
+    <Fragment>
       {/* header */}
       <HeaderContent />
-      {/* main and footer */}
 
       <ContainerContent>{children}</ContainerContent>
-    </section>
+    </Fragment>
   );
-}
+};

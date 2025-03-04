@@ -1,35 +1,13 @@
-import { useState, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { breakpoints } from '@/config/breakpoints';
 import { Breakpoint } from '@/config/interfaces/breakpoints-interface';
-import { getInitialBreakpoint } from '@/lib/utils';
+import { debounce } from '@/lib/utils';
 
-/**
- * Custom hook to determine the current responsive breakpoint based on the window width.
- *
- * @param {Breakpoint} [breakpoint] - Optional initial breakpoint.
- * @returns {Object} - An object containing the current breakpoint.
- * @returns {Breakpoint} return.currentBreakpoint - The current responsive breakpoint.
- *
- * @example
- * const { currentBreakpoint } = useResponsive();
- * console.log(currentBreakpoint); // 'md', 'lg', etc.
- *
- * @remarks
- * This hook uses a debounced resize event listener to update the breakpoint.
- * The breakpoints are defined in the `breakpoints` object.
- */
-export const useResponsive = (
-  breakpoint?: Breakpoint
-): { currentBreakpoint: Breakpoint } => {
-  const [currentBreakpoint, setCurrentBreakpoint] = useState<Breakpoint>(
-    getInitialBreakpoint(breakpoint)
-  );
+export const useResponsive = () => {
+  // Define a fixed default value to avoid mismatches.
+  const [currentBreakpoint, setCurrentBreakpoint] = useState<Breakpoint>('md');
 
-  useLayoutEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
+  useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
 
@@ -38,30 +16,22 @@ export const useResponsive = (
         return width >= min && (max === undefined || width < max);
       }) as Breakpoint;
 
-      if (newBreakpoint && newBreakpoint !== currentBreakpoint) {
-        setCurrentBreakpoint(newBreakpoint);
+      if (newBreakpoint) {
+        // Use the update function to avoid dependencies and compare with the previous value.
+        setCurrentBreakpoint((prevBreakpoint) =>
+          prevBreakpoint !== newBreakpoint ? newBreakpoint : prevBreakpoint
+        );
       }
-    }
-    //   debounce({
-    //   func: () => {
-    //     const width = window.innerWidth;
+    };
 
-    //     const newBreakpoint = Object.keys(breakpoints).find((key) => {
-    //       const { min, max } = breakpoints[key];
-    //       return width >= min && (max === undefined || width < max);
-    //     }) as Breakpoint;
+    const debouncedHandleResize = debounce(handleResize, 300);
 
-    //     if (newBreakpoint && newBreakpoint !== currentBreakpoint) {
-    //       setCurrentBreakpoint(newBreakpoint);
-    //     }
-    //   },
-    //   wait: 100,
-    // });
-
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', debouncedHandleResize);
+    // Run the function on mount to update the actual breakpoint.
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
-  }, [currentBreakpoint]);
+
+    return () => window.removeEventListener('resize', debouncedHandleResize);
+  }, []); // The empty dependency ensures it runs only once.
 
   return { currentBreakpoint };
 };

@@ -29,7 +29,7 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({
       <div
         className={`${width} ${height} flex items-center justify-center bg-gray-100`}
       >
-        <p className='text-red-500'>{"Mapa no disponible"}</p>
+        <p className='text-red-500'>Mapa no disponible</p>
       </div>
     );
   }
@@ -42,7 +42,7 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({
     >
       {!isLoaded && (
         <div className='absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center'>
-          <span>{"Cargando mapa..."}</span>
+          <span>Cargando mapa...</span>
         </div>
       )}
       <iframe

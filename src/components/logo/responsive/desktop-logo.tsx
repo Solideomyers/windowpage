@@ -1,32 +1,24 @@
-import { ImageProps } from "@/types";
-import Image from "next/image";
+import { CustomImg } from '@/components/custom/custom-img';
+import { LogoBase } from '@/components/logo/logo-base';
 
-export const DesktopLogo: React.FC<ImageProps> = ({
+export default function DesktopLogo({
   src,
   alt = 'logo la-ventana desktop',
-}) => {
+}: {
+  src: string;
+  alt: string;
+}) {
   return (
-    <div
-      className={`
-        relative 
-        w-[130px] 
-        h-auto 
-        mx-auto 
-        transition-all 
-        duration-300 
-        ease-in-out
-        hover:scale-105
-      `}
-    >
-      <Image
+    <LogoBase>
+      <CustomImg
         src={src}
         alt={alt}
         priority
         quality={100}
         width={300}
         height={300}
-        className='object-contain w-full h-full'
+        extend='hidden lg:block object-contain w-full h-full'
       />
-    </div>
+    </LogoBase>
   );
-};
+}
