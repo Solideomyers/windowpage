@@ -28,16 +28,16 @@ export const SalonesClient = () => {
         }
         aria-label='ver salones'
       >
-        <div>
-          <CustomImg
-            src='https://www.laventanaweb.com/images/salon.jpg'
-            alt='La Ventana Salon'
-            width={1000}
-            height={1000}
-            priority
-            extend='object-cover w-full h-full cursor-pointer'
-          />
-        </div>
+        <CustomImg
+          src='https://www.laventanaweb.com/images/salon.jpg'
+          alt='La Ventana Salon'
+          width={1000}
+          height={1000}
+          priority
+          quality={100}
+          sizes='100vw'
+          extend='object-cover w-full h-auto h-auto cursor-pointer'
+        />
       </article>
 
       {/* Video Modal */}

@@ -37,6 +37,7 @@ export const ImageContainer: FC<ImageContainerProps> = ({
         alt={altText}
         width={400}
         height={400}
+        priority
         extend='shadow-md w-full h-full object-cover'
         src={imageUrl}
       />

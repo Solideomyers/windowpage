@@ -4,19 +4,21 @@ import { notFound } from 'next/navigation';
 import BaseLayout from '@/components/modules/layouts/base-layout';
 
 export async function generateStaticParams() {
-  return await routing.locales.map((locale) => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+type RootLayoutProps = {
+  children: React.ReactNode,
+  params: Promise<{ locale: Locale }>
 }
 
 export default async function LocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+}: RootLayoutProps) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as Locale)) {
+  if (!routing.locales.includes(locale)) {
     notFound();
   }
 

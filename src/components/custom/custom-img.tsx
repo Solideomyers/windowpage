@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+import Image, { type ImageProps } from 'next/image';
 
 type ImgProps = {
   src: string;
@@ -7,12 +7,9 @@ type ImgProps = {
   width?: number;
   height?: number;
   extend?: string;
-  decoding?: 'sync' | 'async' | 'auto';
-  loading?: 'eager' | 'lazy';
-  sizes?: string;
-  quality?: number;
-  priority?: boolean;
-};
+
+  classNameParent?: string;
+} & Omit<ImageProps, 'src' | 'alt' | 'width' | 'height'>;
 
 export const CustomImg = ({
   src,
@@ -20,17 +17,15 @@ export const CustomImg = ({
   width,
   height,
   extend,
-  loading,
-  decoding,
-  sizes,
-  quality,
-  priority,
+
+  classNameParent,
+  ...rest
 }: ImgProps) => {
   return (
     <div
       role='img'
       aria-label={alt}
-      className='relative w-auto h-auto min-w-[30px]'
+      className={cn('relative w-auto h-auto min-w-[30px]', classNameParent)}
     >
       <Image
         src={src}
@@ -38,11 +33,7 @@ export const CustomImg = ({
         width={width}
         height={height}
         className={cn(extend)}
-        loading={loading}
-        decoding={decoding}
-        sizes={sizes}
-        quality={quality}
-        priority={priority}
+        {...rest}
       />
     </div>
   );
