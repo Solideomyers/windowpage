@@ -3,7 +3,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 import withBundleAnalyzer from '@next/bundle-analyzer'
 
 const withBundleA = withBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE === 'false',
 });
 const withNextIntl = createNextIntlPlugin();
 
