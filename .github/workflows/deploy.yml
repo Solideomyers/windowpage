@@ -21,7 +21,8 @@ jobs:
         run: |
           corepack enable
           corepack prepare pnpm@9.13.0 --activate
-          echo "PATH=$PATH:$(pnpm root -g)/bin" >> $GITHUB_ENV
+          export PATH=$(pnpm bin):$PATH
+          echo "PATH=$(pnpm bin):$PATH" >> $GITHUB_ENV
 
       - name: Verify pnpm version
         run: pnpm --version
