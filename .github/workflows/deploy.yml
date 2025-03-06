@@ -16,7 +16,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          pnpm-version: 9.13.0
+      - name: Install pnpm
+        run: npm install -g pnpm@latest
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
