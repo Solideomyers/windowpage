@@ -22,7 +22,7 @@ export const AnexoClient: FC = () => {
 
   return (
     <section
-      aria-label='Watch Tango lesson and show'
+      aria-label='Watch Tango lessons and show'
       className='w-full sm:w-screen max-w-[1147px] grid grid-cols-1 sm:grid-cols-2 sm:gap-10 gap-4 px-4 md:px-0'
     >
       <h2 className='sr-only'>Cultural Experience at la Ventana</h2>
