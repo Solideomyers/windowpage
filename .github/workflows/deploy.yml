@@ -16,13 +16,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
 
       - name: Install pnpm 9.13.0
         run: |
           corepack enable
           corepack prepare pnpm@9.13.0 --activate
-          echo "$(pnpm root -g)/bin" >> $GITHUB_PATH
+          echo "PATH=$PATH:$(pnpm root -g)/bin" >> $GITHUB_ENV
 
       - name: Verify pnpm version
         run: pnpm --version
