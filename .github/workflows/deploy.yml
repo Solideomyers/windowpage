@@ -18,10 +18,8 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Install pnpm 9.13.0 via Corepack
-        run: |
-          corepack enable
-          corepack prepare pnpm@9.13.0 --activate
+      - name: Install pnpm globally
+        run: npm install -g pnpm@9.13.0
 
       - name: Verify pnpm version
         run: pnpm --version
