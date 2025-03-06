@@ -103,3 +103,7 @@ docker-compose up -d
 ```
 
 This command will start the application in detached mode. You can access the application at <http://localhost:3001>.
+
+## Production
+
+You can access the deployed application at [La Ventana Frontend](https://windowpage-git-main-solideomyers-projects.vercel.app).
